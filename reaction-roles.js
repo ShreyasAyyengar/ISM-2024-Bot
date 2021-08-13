@@ -31,7 +31,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
         try {
             let msg = await reaction.message.fetch();
             console.log(msg.id);
-            if (msg.id === '848071537504550962') {
+            if (msg.id === '875525830569234462') {
                 console.log("Cached")
                 await applyRole();
             }
@@ -40,7 +40,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
         }
     } else {
         console.log("Not a partial.");
-        if (reaction.message.id === '848071537504550962') {
+        if (reaction.message.id === '875525830569234462') {
             console.log(true);
             await applyRole();
         }
@@ -66,7 +66,7 @@ bot.on('messageReactionRemove', async (reaction, user) => {
         try {
             let msg = await reaction.message.fetch();
             console.log(msg.id);
-            if (msg.id === '848071537504550962') {
+            if (msg.id === '875525830569234462') {
                 console.log("Cached")
                 await removeRole();
             }
@@ -75,7 +75,7 @@ bot.on('messageReactionRemove', async (reaction, user) => {
         }
     } else {
         console.log("Not a partial.");
-        if (reaction.message.id === '848071537504550962') {
+        if (reaction.message.id === '875525830569234462') {
             console.log(true);
             await removeRole();
         }

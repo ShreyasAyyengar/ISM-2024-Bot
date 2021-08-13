@@ -1,3 +1,4 @@
+const {MessageActionRow, MessageButton} = require("discord.js");
 const Discord = require("discord.js");
 const config = require('./System/config.json');
 const bot = new Discord.Client({
@@ -91,12 +92,19 @@ bot.on('interactionCreate', async interaction => {
     }
 
     if (interaction.commandName === "src") {
-        interaction.reply("Source Code and Bug Reports: https://github.com/ShreyasAyyengar/ISM-2024-Bot")
+        const row = new MessageActionRow()
+            .addComponents(
+                new MessageButton()
+                    .setLabel('Link ->')
+                    .setStyle('LINK')
+                    .setURL('https://github.com/ShreyasAyyengar/ISM-2024-Bot')
+            );
+        interaction.reply({content: "Source Code and Bug Reports:", ephemeral: true, components: [row]})
     }
 
     if (interaction.commandName === "invite") {
         const inviteURL = new Discord.MessageEmbed()
-            .setDescription("ISM 2024 Permanent Discord Invite ----> https://discord.gg/KCdNZCXpvX")
+            .setDescription("ISM 2024 Permanent Discord Invite ----> https://discord.gg/fGuFQwMDKn")
             .setColor('#ffb320')
         interaction.reply({embeds: [inviteURL]})
     }
@@ -190,17 +198,7 @@ bot.on('interactionCreate', async interaction => {
     }
 
     if (interaction.commandName === "help") {
-        const help = new Discord.MessageEmbed()
-            .setTitle("'2024 Help Page!")
-            .setDescription("How to view a list of commands, and receive extra help!")
-            .addField("To see a list of commands", "", true | false)
-            .setAuthor("", "", "")
-            .setImage("")
-            .setThumbnail("")
-            .setTimestamp()
-            .setFooter("")
-            .setColor('')
-        msg.channel.send(help).then(() => msg.channel.send(new Discord.MessageAttachment("", "")))
+        interaction.reply({content: "Coming soon!", ephemeral: true})
     }
 
 })

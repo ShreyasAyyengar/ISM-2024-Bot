@@ -135,7 +135,7 @@ bot.on('messageCreate', msg => {
                 .addField("Bots:", "<@&845482861284950147>s are the robots that have certain features like music streaming or moderation commands that help run the" +
                     " server more smoothly and provide a better experience for YOU!", true)
                 .addField("Homework:", "The <@&848113739907072020> role can be unlocked at <#845482220730974218>. People with this role will be pinged in <#845480402243026984> when " +
-                    "someone requests help with their homework! (Coming soon!)", true)
+                    "someone requests help with their homework! **(Coming soon!)**", true)
                 .addField("New Students:", "<@&848136989773529099>s are the newbies to our grade! Be kind, Be Respectful and show them what it's like to be a BEARCAT!", false)
                 .addField("Pronouns:", "<@&848168218892042279>, <@&848168429383057408>, <@&848168572517613578>, <@&848168608357941289>, <@&848168688333881354>, and " +
                     "<@&848168833914372127> are all gender pronouns that can be assigned to you in <#845482220730974218>. We recommend that you assign the pronouns you identify yourself with " +
@@ -143,8 +143,20 @@ bot.on('messageCreate', msg => {
                 .setThumbnail(bot.user.avatarURL(bot.user.avatar))
                 .setColor(config.colour)
 
-            msg.channel.send(rolesinfo)
+            msg.channel.send({embeds: [rolesinfo]})
             msg.delete()
+        }
+
+        if (msg.content === "rroles") {
+            const rroles = new Discord.MessageEmbed()
+                .setTitle("Reaction Roles!")
+                .setColor('#ffb320')
+                .setDescription("Reaction Roles, What they are, How to use them.")
+                .addField("What:", "Reaction Roles are the easiest way of assigning roles to users, to receive special roles that grant access to different features/identifiers.", true | false)
+                .addField("How:", "You can get a reaction role by clicking an emoji at the bottom of this message. To find out which role correlates to which reaction (emoji) head over to <#845482191899459594>.", true | false)
+                .addField("Help!", "If you are not receiving the roles that you clicked or if you have any questions about reaction roles, feel free to post them in <#845250431943835651> or DM a member of the council!")
+                .addField("Reactions:", "<:he_him:848160621358088233> - He/Him \n<:she_her:848160705521516565> - She/Her \n<:he_they:848161307161001994> - He/They \n<:she_they:848161542892552232> - She/They \n<:they_them:848161656160649246> - They/Them \n<:ask_for_pronouns:848161784941510674> - Ask for Pronouns")
+            msg.channel.send({embeds: [rroles]})
         }
     }
 })
